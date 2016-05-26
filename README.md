@@ -1,6 +1,6 @@
-# vue-hex-date-picker
+# vue-hex-calendar
 
-> A Vue component for date pickers in the Hex Framework from LionsMouth Digital.
+> A Vue component for calendars in the Hex Framework from LionsMouth Digital.
 
 ## Build Setup
 
