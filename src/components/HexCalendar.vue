@@ -3,15 +3,27 @@
     <table>
       <thead>
         <tr>
-          <th colspan="2">
-            <button @click="prevMonth()" class="calendar__button--prev">
-              <span>Previous Month</span>
+          <th>
+            <button @click="prevMonth()" class="button-prev">
+              <span>&lt;</span>
             </button>
           </th>
-          <th colspan="3">{{ moment(date).format('MMM YYYY') }}</th>
-          <th colspan="2">
-            <button @click="nextMonth()" class="calendar__button--next">
-              <span>Next Month</span>
+          <th colspan="2">{{ moment(date).format('MMM') }}</th>
+          <th>
+            <button @click="nextMonth()" class="button-next">
+              <span>&gt;</span>
+            </button>
+          </th>
+
+          <th>
+            <button @click="prevYear()" class="button-prev">
+              <span>&lt;</span>
+            </button>
+          </th>
+          <th>{{ moment(date).format('YYYY') }}</th>
+          <th>
+            <button @click="nextYear()" class="button-next">
+              <span>&gt;</span>
             </button>
           </th>
         </tr>
@@ -133,6 +145,26 @@
        */
       prevMonth() {
         this.date = moment(this.date, this.format).subtract(1, 'month').format(this.format);
+      },
+
+      /**
+       * Go to the next year.
+       *
+       * @author Curtis Blackwell
+       * @return {void}
+       */
+      nextYear() {
+        this.date = moment(this.date, this.format).add(1, 'year').format(this.format);
+      },
+
+      /**
+       * Go to the previous year.
+       *
+       * @author Curtis Blackwell
+       * @return {void}
+       */
+      prevYear() {
+        this.date = moment(this.date, this.format).subtract(1, 'year').format(this.format);
       },
     },
   }
