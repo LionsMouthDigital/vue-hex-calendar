@@ -70,6 +70,6 @@
     }
   ],
   "license": "CC-BY-SA-4.0",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "main": "src/components/HexCalendar.vue"
 }
