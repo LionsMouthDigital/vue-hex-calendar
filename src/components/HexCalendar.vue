@@ -2,21 +2,21 @@
   <div class="calendar">
     <table>
       <thead>
-        <tr class="controls">
-          <th>
-            <button @click="prevMonth()" class="button-prev"></button>
-          </th>
-          <th colspan="2">{{ moment(date).format('MMM') }}</th>
-          <th>
-            <button @click="nextMonth()" class="button-next"></button>
-          </th>
+        <tr>
+          <th colspan="7">
+            <div class="controls">
+              <div>
+                <button @click="prevMonth()" class="button-prev"></button>
+                <span class="active-date">{{ moment(date).format('MMM') }}</span>
+                <button @click="nextMonth()" class="button-next"></button>
+              </div>
 
-          <th>
-            <button @click="prevYear()" class="button-prev"></button>
-          </th>
-          <th>{{ moment(date).format('YYYY') }}</th>
-          <th>
-            <button @click="nextYear()" class="button-next"></button>
+              <div>
+                <button @click="prevYear()" class="button-prev"></button>
+                <span class="active-date">{{ moment(date).format('YYYY') }}</span>
+                <button @click="nextYear()" class="button-next"></button>
+              </div>
+            </div>
           </th>
         </tr>
 
