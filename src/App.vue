@@ -8,6 +8,7 @@
   import HexCalendar from './components/HexCalendar.vue'
 
   export default {
+    name: 'app',
     components: {
       HexCalendar
     }

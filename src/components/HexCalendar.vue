@@ -38,6 +38,9 @@
   import moment from 'moment';
 
   export default {
+    name: 'HexCalendar',
+
+
     data() {
       return {
         date:       moment().format('YYYY-MM-DD'),
