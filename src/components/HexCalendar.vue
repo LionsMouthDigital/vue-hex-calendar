@@ -21,7 +21,7 @@
         </tr>
 
         <tr class="days-of-week">
-          <th v-for="day in daysOfWeek">{{ day }}</th>
+          <th v-for="day in ['S', 'M', 'T', 'W', 'Th', 'F', 'Sa']">{{ day }}</th>
         </tr>
       </thead>
 
@@ -51,10 +51,9 @@
 
     data() {
       return {
-        date:       moment().format('YYYY-MM-DD'),
-        daysOfWeek: ['S', 'M', 'T', 'W', 'Th', 'F', 'Sa'],
-        format:     'YYYY-MM-DD',
-        moment:     moment,
+        date:   moment().format('YYYY-MM-DD'),
+        format: 'YYYY-MM-DD',
+        moment: moment,
       };
     },
 
