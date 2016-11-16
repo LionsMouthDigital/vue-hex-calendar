@@ -1,38 +1,41 @@
 <template>
   <div class="calendar">
-    <table>
-      <thead>
-        <tr v-if="controls">
-          <th colspan="7">
-            <div class="controls">
-              <div v-if="controls === true || controls === 'month'">
-                <button @click.prevent="prevMonth()" class="button-prev"></button>
-                <span class="active-date">{{ moment(date).format('MMM') }}</span>
-                <button @click.prevent="nextMonth()" class="button-next"></button>
-              </div>
+    <header class="calendar-header">
+      <div class="controls" v-if="controls">
+        <div v-if="controls === true || controls === 'year'">
+          <button class="button-prev" @click.prevent="prevYear()">
+            <span class="sr-only">Previous year</span>
+          </button>
+          <span class="active-date">{{ moment(date).format('YYYY') }}</span>
+          <button class="button-next" @click.prevent="nextYear()">
+            <span class="sr-only">Next year</span>
+          </button>
+        </div>
 
-              <div v-if="controls === true || controls === 'year'">
-                <button @click.prevent="prevYear()" class="button-prev"></button>
-                <span class="active-date">{{ moment(date).format('YYYY') }}</span>
-                <button @click.prevent="nextYear()" class="button-next"></button>
-              </div>
-            </div>
-          </th>
-        </tr>
+        <div v-if="controls === true || controls === 'month'">
+          <button class="button-prev" @click.prevent="prevMonth()">
+            <span class="sr-only">Previous month</span>
+          </button>
+          <span class="active-date">{{ moment(date).format('MMM') }}</span>
+          <button class="button-next" @click.prevent="nextMonth()">
+            <span class="sr-only">Next month</span>
+          </button>
+        </div>
+      </div>
 
-        <tr class="days-of-week">
-          <th v-for="day in ['S', 'M', 'T', 'W', 'Th', 'F', 'Sa']">{{ day }}</th>
-        </tr>
-      </thead>
+      <div class="days-of-week">
+        <div v-for="day in ['S', 'M', 'T', 'W', 'Th', 'F', 'Sa']">{{ day }}</div>
+      </div>
+    </header>
 
-      <tbody>
-        <tr v-for="week in weeks">
-          <td v-for="day in week">{{ moment(day, format).format('DD') }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="week" v-for="week in weeks">
+      <div class="day" v-for="day in week">{{ moment(day, format).format('DD') }}</div>
+    </div>
   </div>
 </template>
+
+
+
 
 <script>
   import moment from 'moment';
