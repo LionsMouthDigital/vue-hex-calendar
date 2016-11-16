@@ -2,16 +2,16 @@
   <div class="calendar">
     <table>
       <thead>
-        <tr>
+        <tr v-if="controls">
           <th colspan="7">
             <div class="controls">
-              <div>
+              <div v-if="controls === true || controls === 'month'">
                 <button @click.prevent="prevMonth()" class="button-prev"></button>
                 <span class="active-date">{{ moment(date).format('MMM') }}</span>
                 <button @click.prevent="nextMonth()" class="button-next"></button>
               </div>
 
-              <div>
+              <div v-if="controls === true || controls === 'year'">
                 <button @click.prevent="prevYear()" class="button-prev"></button>
                 <span class="active-date">{{ moment(date).format('YYYY') }}</span>
                 <button @click.prevent="nextYear()" class="button-next"></button>
@@ -39,6 +39,14 @@
 
   export default {
     name: 'HexCalendar',
+
+
+    props: {
+      controls: {
+        type:    [Boolean, String],
+        default: true,
+      },
+    },
 
 
     data() {

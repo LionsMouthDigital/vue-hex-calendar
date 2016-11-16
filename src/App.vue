@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <hex-calendar></hex-calendar>
+    <hex-calendar :controls="false"></hex-calendar>
+    <hex-calendar controls="month"></hex-calendar>
+    <hex-calendar controls="year"></hex-calendar>
   </div>
 </template>
 
